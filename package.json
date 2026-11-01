@@ -1,0 +1,15 @@
+{
+  "name": "cliento-fullstack",
+  "version": "2.0.0",
+  "description": "Cliento React Frontend + Node.js Express Backend",
+  "scripts": {
+    "install:server": "npm --prefix server install",
+    "install:client": "npm --prefix client install",
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "start": "node server/index.js",
+    "dev": "npm --prefix client run dev",
+    "dev:server": "node server/index.js",
+    "dev:client": "npm --prefix client run dev"
+  }
+}
