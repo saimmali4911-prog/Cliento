@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
         <div className="fbot">
           <span>© {new Date().getFullYear()} Cliento. All rights reserved.</span>
-          <span>hello@example.com · +00 000 000 0000</span>
+          <span><a href="mailto:cliento366@gmail.com">cliento366@gmail.com</a> · <a href="tel:+923200209383">+92 320 0209383</a></span>
         </div>
       </div>
     </footer>

@@ -86,9 +86,8 @@ export default function Contact() {
                 Connect with our team to discuss your startup, target prospects, and custom acquisition roadmap.
               </p>
               <p>
-                <b>Email:</b> hello@example.com<br />
-                <b>Phone:</b> +00 000 000 0000<br />
-                <b>Address:</b> 123 Example Street, City, Country
+                <b>Email:</b> <a href="mailto:cliento366@gmail.com" style={{ color: 'var(--c4)' }}>cliento366@gmail.com</a><br />
+                <b>Phone:</b> <a href="tel:+923200209383" style={{ color: 'var(--c4)' }}>+92 320 0209383</a>
               </p>
             </div>
 
