@@ -13,15 +13,12 @@ export default function Footer() {
           <div>
             <b>Company</b>
             <Link to="/about">About</Link>
-            <Link to="/careers">Careers</Link>
-            <Link to="/blog">Blog</Link>
             <Link to="/contact">Contact</Link>
           </div>
           <div>
             <b>Services</b>
             <Link to="/services">All services</Link>
             <Link to="/pricing">Pricing</Link>
-            <Link to="/portfolio">Portfolio</Link>
             <Link to="/faq">FAQ</Link>
           </div>
           <div>

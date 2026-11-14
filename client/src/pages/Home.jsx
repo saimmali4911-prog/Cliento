@@ -36,6 +36,14 @@ const PHASES = [
 
 const WORDS = ["road-map", "framework", "funnel", "playbook"];
 
+const MARQUEE_LABELS = [
+  "See Start Ups", "Check Landing Page",
+  "Leads Find Out", "Enrichment on Leads",
+  "Write E-mail Sequences", "Run Campaigns on Qualified Leads",
+  "Replies on Emails", "Cold Calling",
+  "Deal's Close", "Start Working on Client Project"
+];
+
 export default function Home() {
   const [activePhase, setActivePhase] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
@@ -45,9 +53,32 @@ export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    service: 'Web Development',
+    startup: '',
+    services: [],
     message: ''
   });
+
+  const SERVICE_OPTIONS = [
+    "Start-up",
+    "Landing Page",
+    "Leads Find Out",
+    "Enrichment on Leads",
+    "Write E-mail Sequences",
+    "Run Campaigns on Qualified Leads",
+    "Replies on Emails",
+    "Cold Calling",
+    "Deal's Close",
+    "Start Working on Client Project"
+  ];
+
+  const handleCheckbox = (option) => {
+    setFormData((prev) => {
+      const selected = prev.services.includes(option)
+        ? prev.services.filter((s) => s !== option)
+        : [...prev.services, option];
+      return { ...prev, services: selected };
+    });
+  };
   const [statusMsg, setStatusMsg] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
@@ -77,7 +108,7 @@ export default function Home() {
       const data = await res.json();
       if (res.ok && data.success) {
         setStatusMsg(data.message || 'Thanks! We will be in touch shortly.');
-        setFormData({ name: '', email: '', service: 'Web Development', message: '' });
+        setFormData({ name: '', email: '', startup: '', services: [], message: '' });
       } else {
         setStatusMsg(data.error || 'Something went wrong. Please try again.');
       }
@@ -110,7 +141,7 @@ export default function Home() {
             </b>
           </h1>
           <p>
-            Turning a cold prospect into a signed client, from first positioning work through to project kickoff. Four phases, ten steps, one disciplined funnel.
+            From identifying potential customers to closing the deal, Cliento helps startups turn opportunities into revenue.
           </p>
           <a className="btn" href="#roadmap">Start the roadmap</a>{' '}
           <a className="btn o" href="#contact">Book a walkthrough</a>
@@ -128,7 +159,7 @@ export default function Home() {
       <div className="mq">
         <div>
           {[0, 1].map((setIdx) =>
-            PHASES.flatMap((p) => p.s.map((s) => s[1])).map((t, idx) => (
+            MARQUEE_LABELS.map((t, idx) => (
               <span key={`${setIdx}-${idx}`}>✦ {t}</span>
             ))
           )}
@@ -140,7 +171,7 @@ export default function Home() {
         <div className="w">
           <h2 className="rl">Why <b>Cliento</b></h2>
           <p className="wr">
-            We turn cold prospects into signed clients with a disciplined ten step system, from positioning and lead sourcing to outreach, follow up and project kickoff. Edit this dummy paragraph.
+            We empower startups to accelerate growth through strategic lead generation, personalized email outreach, targeted campaigns, and deal closing. We streamline customer acquisition, build meaningful connections, and turn prospects into customers allowing you to focus on growing your business while we drive results.
           </p>
         </div>
       </section>
@@ -152,23 +183,23 @@ export default function Home() {
           <div className="stack">
             <div className="card sc" style={{ '--i': 0, '--pc': 'var(--c1)' }}>
               <span className="n">SERVICE 01</span>
-              <h3>Web Development</h3>
-              <p>High performance custom web applications and conversion engines built to scale.</p>
+              <h3>Lead Generation</h3>
+              <p>Identifying and attracting potential customers who are interested in your services.</p>
             </div>
             <div className="card sc" style={{ '--i': 1, '--pc': 'var(--c2)' }}>
               <span className="n">SERVICE 02</span>
-              <h3>App Development</h3>
-              <p>Intuitive mobile and cross-platform experiences tailored to your business operations.</p>
+              <h3>Email Sequences</h3>
+              <p>Creating personalized email sequences to engage prospects and build relationships.</p>
             </div>
             <div className="card sc" style={{ '--i': 2, '--pc': 'var(--c3)' }}>
               <span className="n">SERVICE 03</span>
-              <h3>CRM Solutions</h3>
-              <p>Automate pipeline tracking, client onboarding, and lead follow-ups without manual overhead.</p>
+              <h3>Campaign Run</h3>
+              <p>Launching targeted marketing campaigns to reach the right audience and generate leads.</p>
             </div>
             <div className="card sc" style={{ '--i': 3, '--pc': 'var(--c4)' }}>
               <span className="n">SERVICE 04</span>
-              <h3>SEO & Marketing</h3>
-              <p>Targeted discovery, technical SEO, and outbound campaigns that deliver qualified opportunities.</p>
+              <h3>Deal Closing</h3>
+              <p>Turning qualified prospects into paying customers through effective communication and follow-ups.</p>
             </div>
           </div>
         </div>
@@ -311,17 +342,30 @@ export default function Home() {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
               />
-              <select
-                name="service"
-                value={formData.service}
-                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-              >
-                <option>Web Development</option>
-                <option>App Development</option>
-                <option>CRM</option>
-                <option>SEO</option>
-                <option>Full road-map</option>
-              </select>
+              <textarea
+                name="startup"
+                rows="1"
+                placeholder="About your Startup"
+                value={formData.startup}
+                onChange={(e) => setFormData({ ...formData, startup: e.target.value })}
+                style={{ resize: 'none', height: '46px', lineHeight: '1.6', overflowY: 'hidden' }}
+              ></textarea>
+              <div style={{ textAlign: 'left' }}>
+                <p style={{ margin: '0 0 10px', fontWeight: 600, fontSize: 14 }}>Select Services</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '8px' }}>
+                  {SERVICE_OPTIONS.map((option) => (
+                    <label key={option} style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 14, color: 'var(--mu)' }}>
+                      <input
+                        type="checkbox"
+                        checked={formData.services.includes(option)}
+                        onChange={() => handleCheckbox(option)}
+                        style={{ width: 'auto', accentColor: 'var(--c1)', cursor: 'pointer' }}
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+              </div>
               <textarea
                 name="message"
                 rows="3"

@@ -27,11 +27,8 @@ export default function Navbar() {
         </Link>
         <ul className={mobileOpen ? 'open' : ''}>
           <li><NavLink to="/" end className={({ isActive }) => (isActive ? 'on' : '')}>Home</NavLink></li>
-          <li><NavLink to="/about" className={({ isActive }) => (isActive ? 'on' : '')}>About</NavLink></li>
           <li><NavLink to="/services" className={({ isActive }) => (isActive ? 'on' : '')}>Services</NavLink></li>
-          <li><NavLink to="/portfolio" className={({ isActive }) => (isActive ? 'on' : '')}>Portfolio</NavLink></li>
-          <li><NavLink to="/blog" className={({ isActive }) => (isActive ? 'on' : '')}>Blog</NavLink></li>
-          <li><NavLink to="/careers" className={({ isActive }) => (isActive ? 'on' : '')}>Careers</NavLink></li>
+          <li><NavLink to="/about" className={({ isActive }) => (isActive ? 'on' : '')}>About</NavLink></li>
           <li><NavLink to="/contact" className={({ isActive }) => (isActive ? 'on' : '')}>Contact</NavLink></li>
         </ul>
         <button
