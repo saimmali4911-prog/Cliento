@@ -53,28 +53,39 @@ export default function About() {
 
       <section className="alt">
         <div className="w">
-          <h2>Meet the <b>team</b></h2>
-          <p className="sub">Dummy team members.</p>
-          <div className="grid" data-stagger>
-            <div className="card zi" style={{ '--pc': 'var(--c1)' }}>
-              <span className="n">CEO</span>
-              <h3>Full Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h2 className="rl">Meet our <b>Founder & CEO</b></h2>
+          <p className="sub">The vision and leadership driving Cliento forward.</p>
+
+          <div className="founder-card rl">
+            <div className="founder-media">
+              <img
+                src="/founder.jpg"
+                alt="Founder & CEO"
+                className="founder-img"
+              />
+              <div className="founder-media-overlay"></div>
+              <span className="founder-badge">FOUNDER & CEO</span>
             </div>
-            <div className="card zi" style={{ '--pc': 'var(--c2)' }}>
-              <span className="n">CTO</span>
-              <h3>Full Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div className="card zi" style={{ '--pc': 'var(--c3)' }}>
-              <span className="n">HEAD OF SALES</span>
-              <h3>Full Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div className="card zi" style={{ '--pc': 'var(--c4)' }}>
-              <span className="n">DESIGN LEAD</span>
-              <h3>Full Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            <div className="founder-content">
+              <span className="n">LEADERSHIP SPOTLIGHT</span>
+              <h3>Muhammad Hashir</h3>
+              <span className="founder-role">Founder & Chief Executive Officer</span>
+
+              <p className="founder-bio">
+                "At Cliento, we believe every startup deserves a predictable, disciplined engine for customer acquisition. Having experienced firsthand how challenging it is for growing companies to connect with the right prospects and close deals, I built Cliento to unite the entire acquisition lifecycle under one roof. We help founders focus on what they do best (building great products) while our team turns their opportunities into scalable revenue."
+              </p>
+
+              <div className="founder-tags">
+                <span className="founder-tag">Strategic Growth</span>
+                <span className="founder-tag">Outbound Systems</span>
+                <span className="founder-tag">Lead Acquisition</span>
+                <span className="founder-tag">Deal Execution</span>
+              </div>
+
+              <div>
+                <Link className="btn" to="/contact">Get in touch with Hashir</Link>
+              </div>
             </div>
           </div>
         </div>
