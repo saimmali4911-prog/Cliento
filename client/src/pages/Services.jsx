@@ -28,13 +28,13 @@ export default function Services() {
             <div className="card sc" style={{ '--i': 1, '--pc': 'var(--c2)' }}>
               <span className="n">SERVICE 02</span>
               <h3>Email Sequences</h3>
-              <p>Creating personalized email sequences to engage prospects and build relationships. Our multi-touch campaigns — intro, value, follow-up, and call-to-action — are crafted to spark genuine interest and drive replies from your ideal clients.</p>
+              <p>Creating personalized email sequences to engage prospects and build relationships. Our multi-touch campaigns (intro, value, follow-up, and call-to-action) are crafted to spark genuine interest and drive replies from your ideal clients.</p>
               <Link className="btn o" to="/contact">Get Started</Link>
             </div>
             <div className="card sc" style={{ '--i': 2, '--pc': 'var(--c3)' }}>
               <span className="n">SERVICE 03</span>
               <h3>Campaign Run</h3>
-              <p>Launching targeted marketing campaigns to reach the right audience and generate leads. We manage the full outbound cycle — from list selection and campaign setup through to inbox monitoring and engagement tracking — so you get qualified conversations.</p>
+              <p>Launching targeted marketing campaigns to reach the right audience and generate leads. We manage the full outbound cycle, from list selection and campaign setup through to inbox monitoring and engagement tracking, so you get qualified conversations.</p>
               <Link className="btn o" to="/contact">Get Started</Link>
             </div>
             <div className="card sc" style={{ '--i': 3, '--pc': 'var(--c4)' }}>
