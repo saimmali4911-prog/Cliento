@@ -69,11 +69,11 @@ export default function About() {
 
             <div className="founder-content">
               <span className="n">LEADERSHIP SPOTLIGHT</span>
-              <h3>Muhammad Hashir</h3>
+              <h3>Syed Hashir Ali</h3>
               <span className="founder-role">Founder & Chief Executive Officer</span>
 
               <p className="founder-bio">
-                "At Cliento, we believe every startup deserves a predictable, disciplined engine for customer acquisition. Having experienced firsthand how challenging it is for growing companies to connect with the right prospects and close deals, I built Cliento to unite the entire acquisition lifecycle under one roof. We help founders focus on what they do best (building great products) while our team turns their opportunities into scalable revenue."
+                A serial entrepreneur with over new ideas and 1 year of excellent experience, Syed Hashir Ali helps businesses scale efficiently, embrace innovation, and build impactful digital identities. He has led ventures and advised leading organizations worldwide. He blends business development expertise with strategic vision to drive sustainable growth.
               </p>
 
               <div className="founder-tags">
@@ -84,7 +84,7 @@ export default function About() {
               </div>
 
               <div>
-                <Link className="btn" to="/contact">Get in touch with Hashir</Link>
+                <Link className="btn" to="/contact">Get in touch with Syed Hashir Ali</Link>
               </div>
             </div>
           </div>
