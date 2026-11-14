@@ -5,11 +5,34 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
-    service: 'Web Development',
+    startup: '',
+    services: [],
     message: ''
   });
   const [submitting, setSubmitting] = useState(false);
   const [statusMsg, setStatusMsg] = useState('');
+
+  const SERVICE_OPTIONS = [
+    "Start-up",
+    "Landing Page",
+    "Leads Find Out",
+    "Enrichment on Leads",
+    "Write E-mail Sequences",
+    "Run Campaigns on Qualified Leads",
+    "Replies on Emails",
+    "Cold Calling",
+    "Deal's Close",
+    "Start Working on Client Project"
+  ];
+
+  const handleCheckbox = (option) => {
+    setFormData((prev) => {
+      const selected = prev.services.includes(option)
+        ? prev.services.filter((s) => s !== option)
+        : [...prev.services, option];
+      return { ...prev, services: selected };
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +48,7 @@ export default function Contact() {
       const data = await res.json();
       if (res.ok && data.success) {
         setStatusMsg(data.message || 'Thanks! Your message was received.');
-        setFormData({ name: '', email: '', phone: '', service: 'Web Development', message: '' });
+        setFormData({ name: '', email: '', phone: '', startup: '', services: [], message: '' });
       } else {
         setStatusMsg(data.error || 'Failed to submit. Please try again.');
       }
@@ -36,7 +59,7 @@ export default function Contact() {
         local.push({ ...formData, at: Date.now() });
         localStorage.setItem('leads', JSON.stringify(local));
       } catch (x) {}
-      setStatusMsg('Thanks! Your message was saved. (Connected to Node.js backend)');
+      setStatusMsg('Thanks! Your message was saved.');
     } finally {
       setSubmitting(false);
     }
@@ -50,7 +73,7 @@ export default function Contact() {
         <div className="w" style={{ position: 'relative', zIndex: 1 }}>
           <div className="crumb">Home / Contact Us</div>
           <h1>Contact <b>Us</b></h1>
-          <p>Dummy text: we reply within one business day.</p>
+          <p>We are ready to help your startup accelerate customer acquisition.</p>
         </div>
       </header>
 
@@ -60,7 +83,7 @@ export default function Contact() {
             <div className="rl">
               <h2>Let's <b>talk</b></h2>
               <p className="sub">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Connect with our team to discuss your startup, target prospects, and custom acquisition roadmap.
               </p>
               <p>
                 <b>Email:</b> hello@example.com<br />
@@ -92,21 +115,34 @@ export default function Contact() {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                >
-                  <option>Web Development</option>
-                  <option>App Development</option>
-                  <option>CRM</option>
-                  <option>SEO</option>
-                  <option>Other</option>
-                </select>
+                <textarea
+                  name="startup"
+                  rows="1"
+                  placeholder="About your Startup"
+                  value={formData.startup}
+                  onChange={(e) => setFormData({ ...formData, startup: e.target.value })}
+                  style={{ resize: 'none', height: '46px', lineHeight: '1.6', overflowY: 'hidden' }}
+                ></textarea>
+                <div style={{ textAlign: 'left' }}>
+                  <p style={{ margin: '0 0 10px', fontWeight: 600, fontSize: 14 }}>Select Services</p>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px' }}>
+                    {SERVICE_OPTIONS.map((option) => (
+                      <label key={option} style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 13, color: 'var(--mu)' }}>
+                        <input
+                          type="checkbox"
+                          checked={formData.services.includes(option)}
+                          onChange={() => handleCheckbox(option)}
+                          style={{ width: 'auto', accentColor: 'var(--c1)', cursor: 'pointer' }}
+                        />
+                        {option}
+                      </label>
+                    ))}
+                  </div>
+                </div>
                 <textarea
                   name="message"
-                  rows="4"
-                  placeholder="Tell us how we can help"
+                  rows="3"
+                  placeholder="Tell us about your goals"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 ></textarea>

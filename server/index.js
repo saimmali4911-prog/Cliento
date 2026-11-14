@@ -62,7 +62,7 @@ app.get('/api/leads', (req, res) => {
 
 // Submit lead / contact form
 app.post('/api/leads', (req, res) => {
-  const { name, email, phone, service, message, source } = req.body;
+  const { name, email, phone, service, services, startup, message, source } = req.body;
 
   if (!name || !email) {
     return res.status(400).json({
@@ -86,7 +86,9 @@ app.post('/api/leads', (req, res) => {
     name: name.trim(),
     email: email.trim(),
     phone: phone ? phone.trim() : '',
-    service: service || 'General Inquiry',
+    startup: startup ? startup.trim() : '',
+    services: Array.isArray(services) && services.length > 0 ? services : (service ? [service] : []),
+    service: Array.isArray(services) && services.length > 0 ? services.join(', ') : (service || 'General Inquiry'),
     message: message ? message.trim() : '',
     source: source || 'Walkthrough Form',
     createdAt: new Date().toISOString()
