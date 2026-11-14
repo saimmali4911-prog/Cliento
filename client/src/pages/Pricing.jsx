@@ -56,7 +56,7 @@ export default function Pricing() {
           <div className="cta rv">
             <h2>Ready to <b>get started</b>?</h2>
             <p className="sub" style={{ margin: '0 auto 20px' }}>
-              Dummy call-to-action text. Replace with your own.
+              Let's turn your prospects into customers and your opportunities into revenue. Your next stage of growth starts here.
             </p>
             <Link className="btn" to="/contact">Contact us</Link>
           </div>
