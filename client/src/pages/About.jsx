@@ -10,7 +10,7 @@ export default function About() {
         <div className="w" style={{ position: 'relative', zIndex: 1 }}>
           <div className="crumb">Home / About Us</div>
           <h1>About <b>Us</b></h1>
-          <p>Dummy intro: tell visitors who you are and what you stand for.</p>
+          <p>We bring the entire customer acquisition journey under one roof to help startups grow.</p>
         </div>
       </header>
 
@@ -18,7 +18,7 @@ export default function About() {
         <div className="w">
           <h2 className="rl">Our <b>story</b></h2>
           <p className="wr">
-            Cliento helps companies turn cold prospects into signed clients through a disciplined, step by step acquisition system. Replace this paragraph with your own company story and watch each word light up as the visitor scrolls past it.
+            Cliento was founded with a simple vision: to make business growth easier for startups. We recognized that finding the right customers, building connections, and converting leads into sales can be challenging. That's why we bring the entire customer acquisition journey under one roof, from lead generation and personalized email outreach to targeted campaigns and deal closing. Our mission is to help startups grow smarter, connect better, and turn opportunities into lasting business success.
           </p>
         </div>
       </section>
@@ -39,13 +39,13 @@ export default function About() {
           <div className="two">
             <div className="card rl" style={{ '--pc': 'var(--c2)' }}>
               <span className="n">OUR MISSION</span>
-              <h3>Mission headline</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h3>To understand our client's priorities and provide the right solutions</h3>
+              <p>Solutions that drive business growth, create value, and deliver measurable results.</p>
             </div>
             <div className="card rr" style={{ '--pc': 'var(--c4)' }}>
               <span className="n">OUR VISION</span>
-              <h3>Vision headline</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h3>A trusted business and preferred partner for our clients</h3>
+              <p>Consistently delivering the right solutions, creating long-term value, and contributing to their sustainable growth.</p>
             </div>
           </div>
         </div>
