@@ -298,5 +298,83 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--c4);box-sha
   }
 }
 
+/* ---- Sales & Lead Gen Process Flowchart (Theme-matched) ---- */
+.process-flow-container {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 24px;
+  padding: 36px 24px 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.process-flow-container::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--grad);
+}
+.process-flow-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.process-flow-header h3 {
+  font-size: clamp(20px, 3vw, 28px);
+  margin: 8px 0 10px;
+  letter-spacing: -0.5px;
+}
+.flowchart-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.flowchart-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.flowchart-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: var(--bd);
+  border-radius: 99px;
+}
+.flowchart-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--c4);
+}
+.process-flowchart-svg {
+  width: 100%;
+  max-width: 900px;
+  min-width: 660px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.flow-node rect {
+  transition: all 0.25s ease;
+}
+.flow-node:hover rect {
+  stroke: var(--c4) !important;
+  filter: drop-shadow(0 0 12px rgba(0, 217, 255, 0.45));
+}
+.flow-node.active rect {
+  stroke: var(--c3) !important;
+  filter: drop-shadow(0 0 14px rgba(46, 232, 62, 0.5));
+}
+.flow-info-box {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: var(--bg2);
+  border: 1px solid var(--bd);
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+.flow-info-box:hover {
+  border-color: var(--c4);
+}
+
+
 
 

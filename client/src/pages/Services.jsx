@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProcessFlowchart from '../components/ProcessFlowchart';
 
 export default function Services() {
   return (
@@ -47,26 +48,10 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="alt">
+      <section className="alt" id="process">
         <div className="w">
-          <h2>How we <b>work</b></h2>
-          <div className="grid" data-stagger>
-            <div className="card rl" style={{ '--pc': 'var(--c1)' }}>
-              <span className="n">STEP 1</span>
-              <h3>Discovery Call</h3>
-              <p>We learn about your startup, target market, and goals to define the ideal client profile and positioning.</p>
-            </div>
-            <div className="card rl" style={{ '--pc': 'var(--c2)' }}>
-              <span className="n">STEP 2</span>
-              <h3>Build & Launch</h3>
-              <p>We build your lead list, craft email sequences, and launch targeted outbound campaigns on your behalf.</p>
-            </div>
-            <div className="card rl" style={{ '--pc': 'var(--c3)' }}>
-              <span className="n">STEP 3</span>
-              <h3>Engage & Close</h3>
-              <p>We manage replies, run follow-ups, and support deal closing until prospects become paying customers.</p>
-            </div>
-          </div>
+          <h2 className="rl" style={{ textAlign: 'center', marginBottom: 28 }}>How we <b>work</b></h2>
+          <ProcessFlowchart />
         </div>
       </section>
 
