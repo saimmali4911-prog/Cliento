@@ -84,7 +84,14 @@ export default function About() {
               </div>
 
               <div>
-                <Link className="btn" to="/contact">Get in touch with Syed Hashir Ali</Link>
+                <a
+                  className="btn"
+                  href="https://www.linkedin.com/in/syed-hashir-ali-a21742386?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get in touch with Syed Hashir Ali
+                </a>
               </div>
             </div>
           </div>
