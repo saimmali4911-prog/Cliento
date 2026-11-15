@@ -352,7 +352,7 @@ export default function Home() {
               ></textarea>
               <div style={{ textAlign: 'left' }}>
                 <p style={{ margin: '0 0 10px', fontWeight: 600, fontSize: 14 }}>Select Services</p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '8px' }}>
+                <div className="services-checkbox-grid">
                   {SERVICE_OPTIONS.map((option) => (
                     <label key={option} style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 14, color: 'var(--mu)' }}>
                       <input

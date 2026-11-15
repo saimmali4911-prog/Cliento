@@ -30,6 +30,9 @@ export default function ProcessFlowchart() {
         <p className="sub" style={{ margin: '0 auto 18px', maxWidth: 700 }}>
           Hover or tap any step in the flowchart to view operational details of our acquisition engine.
         </p>
+        <div className="mobile-scroll-hint">
+          <span>⇄ Swipe horizontally to explore full workflow</span>
+        </div>
       </div>
 
       <div className="flowchart-scroll-wrapper">

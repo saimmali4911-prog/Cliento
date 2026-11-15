@@ -30,15 +30,20 @@ export default function Navbar() {
           <li><NavLink to="/services" className={({ isActive }) => (isActive ? 'on' : '')}>Services</NavLink></li>
           <li><NavLink to="/about" className={({ isActive }) => (isActive ? 'on' : '')}>About</NavLink></li>
           <li><NavLink to="/contact" className={({ isActive }) => (isActive ? 'on' : '')}>Contact</NavLink></li>
+          <li className="nav-mobile-cta">
+            <Link className="btn" to="/contact" style={{ width: '100%', marginTop: 8 }}>Book a walkthrough</Link>
+          </li>
         </ul>
-        <button
-          className="mb"
-          aria-label="Menu"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? 'Close' : 'Menu'}
-        </button>
-        <Link className="btn" to="/contact">Book a walkthrough</Link>
+        <div className="nav-actions">
+          <Link className="btn nav-desktop-cta" to="/contact">Book a walkthrough</Link>
+          <button
+            className="mb"
+            aria-label="Menu"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? '✕' : '☰'}
+          </button>
+        </div>
       </div>
     </nav>
   );

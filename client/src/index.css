@@ -98,10 +98,21 @@ footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .rv{transform:translateY(40px);transition:opacity 1s,transform 1s cubic-bezier(.2,.7,.2,1)}
 .card.rv.in:hover{transform:translateY(-8px) scale(1.02)}
 
-/* ---- multipage + scroll animations ---- */
+/* ---- multipage + navigation ---- */
+.nav-actions{display:flex;align-items:center;gap:12px}
+.nav-desktop-cta{display:inline-block}
+.nav-mobile-cta{display:none}
 nav ul a.on{color:var(--tx)}
-.mb{display:none;background:none;border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:6px 12px;cursor:pointer;font:inherit}
-@media(max-width:760px){.mb{display:block}nav ul.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:14px;background:var(--bg);padding:18px 20px;border-bottom:1px solid var(--bd)}}
+.mb{display:none;background:rgba(255,255,255,0.06);border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:8px 14px;cursor:pointer;font:inherit;align-items:center;justify-content:center;transition:.2s}
+.mb:hover{border-color:var(--c4)}
+@media(max-width:760px){
+  nav ul{display:none}
+  .nav-desktop-cta{display:none}
+  .nav-mobile-cta{display:block}
+  .mb{display:inline-flex}
+  nav ul.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:14px;background:rgba(3,7,10,0.98);backdrop-filter:blur(16px);padding:20px 24px 26px;border-bottom:1px solid var(--bd);box-shadow:0 16px 32px rgba(0,0,0,0.7);z-index:999}
+  nav ul.open a{font-size:16px;padding:6px 0;display:block}
+}
 .rl,.rr,.zi{opacity:0;transition:opacity 1s,transform 1s cubic-bezier(.2,.7,.2,1)}
 .rl{transform:translateX(-70px)}.rr{transform:translateX(70px)}.zi{transform:scale(.88)}
 .rl.in,.rr.in,.zi.in{opacity:1;transform:none}
@@ -374,6 +385,196 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--c4);box-sha
 .flow-info-box:hover {
   border-color: var(--c4);
 }
+
+/* ---- Mobile Scroll Hint for Flowchart ---- */
+.mobile-scroll-hint {
+  display: none;
+  text-align: center;
+  font-size: 12px;
+  color: var(--c4);
+  background: rgba(0, 217, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(0, 217, 255, 0.25);
+  width: fit-content;
+  margin: 0 auto 16px;
+}
+
+/* ---- Comprehensive Responsive System for Tablet & Mobile ---- */
+
+/* Global container safeguard */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Services Checkbox Grid */
+.services-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 14px;
+}
+
+@media (max-width: 992px) {
+  .w { padding: 0 20px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .founder-card { grid-template-columns: 260px 1fr; gap: 24px; padding: 26px; }
+}
+
+@media (max-width: 768px) {
+  /* Spacing */
+  section { padding: 48px 0; }
+  .hero { padding: 60px 0 36px; }
+  .page-hero { padding: 56px 0 28px; }
+
+  /* Typography */
+  h1 { font-size: clamp(28px, 7vw, 42px); line-height: 1.15; letter-spacing: -0.5px; }
+  h2 { font-size: clamp(22px, 5.5vw, 32px); }
+  .hero p, .page-hero p { font-size: 16px; line-height: 1.5; }
+  .wr { font-size: clamp(18px, 4.5vw, 26px); line-height: 1.45; }
+
+  /* Sticky Cards Stacking on Mobile: change to static so cards don't block viewport */
+  .sc {
+    position: static !important;
+    transform: none !important;
+    margin-bottom: 16px;
+    padding: 22px 18px;
+    min-height: auto;
+  }
+  .stack { padding-bottom: 0; }
+
+  /* Flowchart on tablet/mobile */
+  .mobile-scroll-hint { display: block; }
+  .process-flow-container { padding: 24px 16px 20px; border-radius: 18px; }
+  .process-flow-header h3 { font-size: 20px; }
+  .process-flowchart-svg { min-width: 600px; }
+
+  /* Founder card */
+  .founder-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 24px 18px;
+    gap: 20px;
+  }
+  .founder-media {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .founder-content h3 {
+    font-size: clamp(22px, 5vw, 28px);
+    white-space: normal;
+  }
+  .founder-tags {
+    justify-content: center;
+  }
+
+  /* Split layout on mobile */
+  .split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 580px) {
+  .w { padding: 0 16px; }
+
+  /* Navigation adjustments */
+  nav .w { height: 58px; }
+  .logo img { height: 30px; }
+
+  /* Hero buttons */
+  .hero .btn {
+    width: 100%;
+    margin: 6px 0;
+    box-sizing: border-box;
+  }
+
+  /* Stats 2-column grid */
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 30px;
+  }
+  .stat {
+    padding: 14px 8px;
+    border-radius: 12px;
+  }
+  .stat b { font-size: 26px; }
+  .stat span { font-size: 11px; }
+
+  /* Tabs segmented controls */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .tabs button {
+    width: 100%;
+    padding: 8px 6px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* Grids to single column */
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+  .two { grid-template-columns: 1fr; gap: 14px; }
+  .card { padding: 20px 16px; border-radius: 14px; }
+  .card h3 { font-size: 18px; }
+
+  /* CTA container */
+  .cta {
+    padding: 36px 18px;
+    border-radius: 20px;
+  }
+
+  /* Forms & Checkbox grid */
+  form {
+    gap: 10px;
+    margin-top: 18px;
+  }
+  input, select, textarea {
+    padding: 11px 12px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  .services-checkbox-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  form .btn {
+    width: 100%;
+    padding: 13px 20px;
+  }
+
+  /* Funnel full width */
+  .funnel div {
+    width: 100% !important;
+    font-size: 13px;
+    padding: 10px 14px;
+    text-align: left;
+    border-radius: 10px;
+  }
+
+  /* Footer */
+  .fcols {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 14px;
+  }
+  .fbot {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    font-size: 13px;
+    padding-top: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .fcols { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .tabs { grid-template-columns: 1fr; }
+}
+
 
 
 
