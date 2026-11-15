@@ -13,16 +13,12 @@ export default function Contact() {
   const [statusMsg, setStatusMsg] = useState('');
 
   const SERVICE_OPTIONS = [
-    "Start-up",
-    "Landing Page",
     "Leads Find Out",
     "Enrichment on Leads",
     "Write E-mail Sequences",
     "Run Campaigns on Qualified Leads",
     "Replies on Emails",
-    "Cold Calling",
-    "Deal's Close",
-    "Start Working on Client Project"
+    "Cold Calling"
   ];
 
   const handleCheckbox = (option) => {
